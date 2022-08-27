@@ -1,25 +1,45 @@
-let stillPlaying = true;
+
 let computerWins = 0;
 let playerWins = 0;
-let ties = 0;
-let playerSelection = " ";
 let rounds = 0;
+let ties = 0;
 document.getElementById("cScore").innerHTML = "Computer Score: " + computerWins;
 document.getElementById("pScore").innerHTML = "Player Score: " + playerWins;
 
+function restartGame() {
+  computerWins = 0;
+  playerWins = 0;
+  playerSelection = " ";
+  rounds = 0;
+  document.getElementById("cScore").innerHTML = "Computer Score: " + computerWins;
+  document.getElementById("pScore").innerHTML = "Player Score: " + playerWins;
+}
 
 
-let buttons = document.querySelectorAll("button");
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    playerSelection = button.innerText.toLowerCase();
-    compare(playerSelection, computerSelection);
-    if (playerWins == 5 || computerWins == 5) {
-      checkWinner();
-    }
-  });
-});
+const playagainBtn = document.getElementById("pA")
+const rockButton = document.getElementById("b1");
+const paperButton = document.getElementById("b2");
+const scButton = document.getElementById("b3");
 
+
+playagainBtn.addEventListener("click", () => restartGame());
+rockButton.addEventListener("click", () => possibleClick("rock"));
+paperButton.addEventListener("click", () => possibleClick("paper"));
+scButton.addEventListener("click", () => possibleClick("scissors"));
+
+function possibleClick(playerSelection) {
+  if (gameOver()) {
+    checkWinner();
+    return disableB();
+  }
+  const computerSelection = getComputerChoice();
+  function getComputerChoice() {
+    const choices = ["Rock", "Paper", "Scissors"];
+    const random = choices[Math.floor(Math.random() * choices.length)];
+    return random.toLowerCase();
+  }
+  compare(playerSelection, computerSelection);
+}
 
 
 function compare(playerSelection, computerSelection) {
@@ -69,26 +89,30 @@ function compare(playerSelection, computerSelection) {
   }
 }
 
-const computerSelection = getComputerChoice();
-function getComputerChoice() {
-  const choices = ["Rock", "Paper", "Scissors"];
-  const random = choices[Math.floor(Math.random() * choices.length)];
-  return random.toLowerCase();
+function disableB() {
+  rockButton.removeEventListener("click", () => possibleClick("rock"));
+  paperButton.removeEventListener("click", () => possibleClick("paper"));
+  scButton.removeEventListener("click", () => possibleClick("scissors"));
 }
 
 function checkWinner() {
   if (playerWins > computerWins) {
-    console.log("Congrats you won the most rounds!");
+
+    return console.log("Congrats you won the most rounds!");
 
   }
   else if (computerWins > playerWins) {
-    console.log("Duhn Duhn Duhhhh, the computer won the most rounds!");
+
+    return console.log("Duhn Duhn Duhhhh, the computer won the most rounds!");
 
   }
   else {
-    console.log("Tie all around for 5 rounds!");
+
+    return console.log("Tie all around for 5 rounds!");
 
   }
 }
 
-
+function gameOver() {
+  return playerWins >= 5 || computerWins >= 5;
+}
