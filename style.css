@@ -1,0 +1,167 @@
+:root {
+  --pLight: rgb(230, 166, 198);
+  --pDark: #90b5ec;
+  --sDark: #224a8b;
+  --secondary-dark-hover: #97c1c7;
+  --secondary-dark-active: #5b5f68;
+  --header: #dcdda0;
+  --fun: #fac650;
+}
+*:,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  
+}
+body {
+  background-color: var(--pLight);
+  color: var(--primary-light);
+  line-height: 4;
+  /* footer support */
+  margin-bottom: 100px;
+  font-family: Avant Garde, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif; 
+  
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  
+  position: fixed;
+  top: 20;
+  width: 170px;
+}
+button {
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  outline: none;
+}
+h2{
+  
+  font-size: 24px; 
+  font-style: italic; 
+  font-weight: 700; 
+  line-height: 28px;
+  display: flex;
+  justify-content: center;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  color: rgb(78, 75, 82);
+  font-size: 20px;
+  background-color: #afafaf;
+}
+
+a {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  height: 30px;
+}
+h2 {
+  display: flex;
+  justify-content: center;
+  position:relative; top:-80px;
+  
+}
+.buttons-div{
+  display: flex;
+  justify-content: center;
+}
+.messageBoard{
+  display: flex;
+  flex-direction: column;
+  position: relative; top: -60px;
+  align-items: center;
+  line-height: 1px;
+}
+.name{
+  font-size: 30px;
+}
+.directions{
+  padding:-5px;
+}
+.scoreBoard{
+  display: flex;
+  justify-content: space-between;
+  
+}
+#pScore {
+  margin-left: 150px;
+}
+#cScore{
+  margin-right: 150px;
+}
+#pA{
+  padding: 10px;
+  border-radius: 50%;
+}
+.buttons-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+
+}
+.btn-square {
+  border-radius: 10px;
+  background-color: #81848a;
+  width: 150px;
+  height: 150px;
+  
+  
+}
+.btn-square:hover{
+  background-color: hotpink;
+  
+}
+.fa-rocket, .fa-toilet-paper, .fa-scissors{
+  font-size: 80px;
+  margin-bottom: 10px;
+}
+div.et, div.-toilet, div.sIcon{
+  color: black;
+  font-weight: bold;
+  margin-bottom: -10px;
+}
+div.sIcon{
+  font-size: 15px;
+}
+.fa-scissors{
+  font-size: 70px;
+}
+#pScore, #cScore{
+  font-weight: bold;
+}
+.updateBoard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #81848a;
+  height: 130px;
+  width: 600px;
+  font-style: italic;
+  font-size: 40px;
+}
+span{
+  display: flex;
+  justify-content: center;
+}
+#pA:hover{
+  background-color: hotpink;
+}
